@@ -1,0 +1,11 @@
+<div class="new_post">
+  <%= link_to '新規ToDo', new_to_do_path %>
+</div>
+<% @to_dos.each do |to_do| %>
+<div class="post_head">
+  <%= link_to 'edit', edit_to_do_path(to_do.id) %>
+  <%= link_to 'delete', to_do_path(to_do),  method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %>
+</div>
+  <p><%= to_do.expired_at&.to_s %></p>
+  <p><%= to_do.title %></p>
+<% end %>
